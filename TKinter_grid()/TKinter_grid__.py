@@ -7,7 +7,6 @@ def failist_sonastikusse():
     for line in file:
         t, k=line.strip().split(":")
         tk[t.strip()]=k.strip()
-    print(tk)
     file.close()
     return tk
 
@@ -15,11 +14,11 @@ def kirjeldus_aknasse(t:str,p:str):
     if (askyesno("Küsimus","Kas tahad kirjeldust näha?")):
         alam_aken=Toplevel()
         alam_aken.title(p)
-        alam_aken.geometry("650x670")
-        lbl_kirjeldus=Label(alam_aken,text=tk[t]).pack()
+        alam_aken.geometry("660x680")
+        lbl_kirjeldus=Label(alam_aken,text=tk[t],font="Arial 18",relief="solid").pack()
         c=Canvas(alam_aken,height=1000,width=1000)
         file=PhotoImage(file=t)
-        c.create_image(2,2,image=file,anchor=NW)
+        c.create_image(10,10,image=file,anchor=NW)
         c.pack()
         alam_aken.mainloop()
     else:
